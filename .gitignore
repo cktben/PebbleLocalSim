@@ -5,5 +5,13 @@ build/linux/codeblocks/obj/
 build/linux/codeblocks/bin/
 test/
 
+# Unimportant but frequently changing project files.
+build/linux/codeblocks/*.depend
+build/linux/codeblocks/*.layout
+
+# Build products.
+build/linux/build/tools/local/libPebbleLocalSim.a
+build/linux/build/tools/local/resCompiler
+
 *.goutput*
 *~
