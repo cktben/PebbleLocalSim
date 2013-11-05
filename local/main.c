@@ -38,7 +38,7 @@ static bool buttonState [NUM_BUTTONS]= {0,0,0,0};
 static bool bodyRender=true;
 static bool lastVibeState=false;
 static bool lastLightState=false;
-static char titleBuffer[]="./simdata/screenshots/yyyy-mm-dd-hh-mm.bmp\0\0";
+static char titleBuffer[128];
 
 FILE* logFile=0;
 
@@ -189,8 +189,7 @@ void app_event_loop(AppTaskContextRef app_task_ctx, PebbleAppHandlers *handlers)
                 break;
                 case(SDLK_F12): {
                     get_time (&now);
-                    string_format_time (titleBuffer,strlen(titleBuffer),"./simdata/screenshots/%Y-%m-%e-%H-%M-%S",&now);
-                    strcat(titleBuffer,".bmp");
+                    string_format_time (titleBuffer,sizeof(titleBuffer),"./simdata/screenshots/%Y-%m-%e-%H-%M-%S.bmp",&now);
                     if (SDL_SaveBMP(screen,titleBuffer)<0)
                         printf("[WARN] SDL_SaveBMP: %s\n",SDL_GetError ());
                     else
