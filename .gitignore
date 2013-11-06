@@ -15,3 +15,9 @@ build/linux/build/tools/local/resCompiler
 
 *.goutput*
 *~
+
+# waf files
+.waf*
+.lock-waf*
+build/waf_build/
+
